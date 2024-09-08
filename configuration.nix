@@ -120,6 +120,10 @@
 		wofi
 		spotify
 		pavucontrol
+
+		# Cursor
+		bibata-cursors
+		catppuccin-gtk
 	];
 
   environment.variables.EDITOR = "nvim";
