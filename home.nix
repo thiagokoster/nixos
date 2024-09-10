@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 	imports = [
 		./modules/waybar.nix
+		./features/kitty.nix
+		inputs.nix-colors.homeManagerModules.default
 	];
+
+	colorScheme = inputs.nix-colors.colorSchemes.nord;
 
 	# Home Manager needs a bit of information about you and the paths it should
 	# manage.
@@ -116,43 +120,6 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-
-    qt = {
-      enable = true;
-      platformTheme.name = "gtk";
-    };
-
-    gtk = {
-      enable = true;
-      theme = {
-        name = "catppuccin-mocha-mauve-compact";
-        package = pkgs.catppuccin-gtk.override {
-          accents = ["mauve"];
-          variant = "mocha";
-          size = "compact";
-        };
-      };
-      iconTheme = {
-        package = pkgs.adwaita-icon-theme;
-        name = "Adwaita";
-      };
-      gtk3.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-      gtk4.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-    };
-    xdg.configFile = {
-      "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-      "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-      "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-    };
-
 
 	# Hyprland
 	wayland.windowManager.hyprland = {

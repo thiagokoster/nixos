@@ -82,16 +82,17 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.thiagokoster = {
-    isNormalUser = true;
-    description = "thiagokoster";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
 
-  home-manager = {
+	# Define a user account. Don't forget to set a password with ‘passwd’.
+	users.users.thiagokoster = {
+		isNormalUser = true;
+		description = "thiagokoster";
+		extraGroups = [ "networkmanager" "wheel" ];
+		packages = with pkgs; [
+			#  thunderbird
+		];
+	};
+	home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
       "thiagokoster" = import ./home.nix;
@@ -123,7 +124,6 @@
 
 		# Cursor
 		bibata-cursors
-		catppuccin-gtk
 	];
 
   environment.variables.EDITOR = "nvim";
