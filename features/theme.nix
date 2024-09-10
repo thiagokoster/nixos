@@ -10,6 +10,11 @@ in
 			name = "${config.colorScheme.slug}";
 			package = gtkThemeFromScheme {scheme = config.colorScheme;};
 		};
+
+		iconTheme = {
+			package = pkgs.zafiro-icons;
+			name = "Zafiro-icons-Dark";
+		};
 	};
 
 	# Add cursor
