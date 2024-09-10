@@ -6,6 +6,7 @@
 		./features/kitty.nix
 		./features/nvim
 		./features/hypr.nix
+		./features/theme.nix
 		inputs.nix-colors.homeManagerModules.default
 	];
 
@@ -85,12 +86,4 @@
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
 
-	# Add cursor
-	home.pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 24;
-    };
-}
+	}
