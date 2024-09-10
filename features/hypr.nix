@@ -17,7 +17,7 @@
 		settings = {
 			"$mod" = "SUPER";
 			"$terminal" = "kitty";
-			"$menu" = "pkill wofi || wofi --show drun";
+			"$menu" = "pkill wofi || wofi --allow-images --show drun";
 
 			exec-once = [
 				"waybar"
