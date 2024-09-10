@@ -122,6 +122,8 @@
 		spotify
 		pavucontrol
 
+		swww
+
 		# Cursor
 		bibata-cursors
 	];

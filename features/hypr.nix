@@ -21,6 +21,7 @@
 			"$menu" = "pkill wofi || wofi --allow-images --show drun";
 
 			exec-once = [
+				"swww init ; sleep 1 && swww img ~/.wallpapers/wallpaper1.png"
 				"waybar"
 			];
 
