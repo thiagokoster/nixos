@@ -14,6 +14,7 @@
 		# Whether to enable hyprland-session.target on hyprland startup
 		systemd.enable = true;
 
+
 		settings = {
 			"$mod" = "SUPER";
 			"$terminal" = "kitty";
@@ -21,6 +22,11 @@
 
 			exec-once = [
 				"waybar"
+			];
+
+			env = [
+				"XCURSOR_SIZE,17" #TODO: This should be set in the theme.nix file as well.
+				"XCURSOR_THEME,graphite-dark-nord"
 			];
 
 			xwayland = {
@@ -32,9 +38,9 @@
 				gaps_out = 6;
 			};
 
-			#cursor = {
-			#	enable_hyprcursor = true;
-			#};
+			#	cursor = {
+			#	cur	enable_hyprcursor = true;
+			#	cur};
 
 			animations = {
 				enabled = true;

@@ -4,6 +4,8 @@ let
 	gtkThemeFromScheme;
 in
 	{
+	# /home/thiagokoster/.nix-profile/share/icons/graphite-dark-nord
+
 	gtk = {
 		enable = true;
 		theme = {
@@ -12,17 +14,14 @@ in
 		};
 
 		iconTheme = {
-			package = pkgs.zafiro-icons;
 			name = "Zafiro-icons-Dark";
+			package = pkgs.zafiro-icons;
 		};
-	};
 
-	# Add cursor
-	home.pointerCursor = {
-		gtk.enable = true;
-		x11.enable = true;
-		package = pkgs.bibata-cursors;
-		name = "Bibata-Modern-Classic";
-		size = 24;
+		cursorTheme = {
+			name = "graphite-dark-nord";
+			package = pkgs.graphite-cursors;
+			size = 17;
+		};
 	};
 }
