@@ -7,7 +7,6 @@
         layer = "top";
         position = "top";
         height = 26;
-    
         modules-left = [ "hyprland/workspaces" ];
         modules-right = ["pulseaudio" "battery" "clock" ];
         
@@ -32,27 +31,46 @@
     
         "battery" = {
           states = {
-            good = 95;
-            warning = 30;
-            critical = 15;
+            b95 = 95;
+            b90 = 90;
+            b80 = 80;
+            b70 = 70;
+            b60 = 60;
+            b50 = 50;
+            b40 = 40;
+            b30 = 30;
+            b20 = 20;
+            warning = 10;
+            critical = 5;
           };
-          format = "{icon} {capacity}%";
-          format-icons = [ "" "" "" "" "" ];
+          format = "{icon}";
+          format-icons = [ 
+						"󰂎"
+						"󰁺"
+						"󰁻"
+						"󰁼"
+						"󰁽"
+						"󰁾"
+						"󰁿"
+						"󰂀"
+						"󰂁"
+						"󰂂"
+						"󰁹"
+					];
+		  format-full = "󰁹";
         };
+
         "pulseaudio" = {
-          format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
+          format = "{volume}% <span font='3270 Nerd Font'>{icon}</span> {format_source}";
+          format-bluetooth = "{volume}% <span font='3270 Nerd Font'>{icon}󰂯</span> {format_source}";
+          format-bluetooth-muted = "<span font='3270 Nerd Font'>󰍭 {icon}󰂯</span> {format_source}";
           format-icons = {
-            car = "";
-            default = [ "" "" "" ];
-            headphones = "";
-            phone = "";
-            portable = "";
+            default = [ "" " " " " ];
+            headphones = "󰋋 ";
           };
-          format-muted = " {format_source}";
-          format-source = "{volume}% ";
-          format-source-muted = "";
+          format-muted = "<span font='3270 Nerd Font'>󰖁</span> {format_source}";
+          format-source = "{volume}% <span font='3270 Nerd Font'></span>";
+          format-source-muted = "<span font='3270 Nerd Font'>󰍭</span>";
           on-click = "pavucontrol";
         };
       };
@@ -66,7 +84,7 @@
       padding: 0 3px 0 0;
       margin: 0;
       font-size: 13px;
-      font-family: JetBrainsMono Nerd Font Mono;
+      font-family: "JetBrainsMono Nerd Font";
     }
 
     window#waybar {
@@ -77,14 +95,17 @@
     #workspaces { 
       background: #272932;
     }
+
     #workspaces button {
       padding: 0 2px;
       color: #FDF6E3;
       
     }
+
     #workspaces button.active {
       background: #E455Ae;
     }
+
     #workspaces button:hover {
       background: #272932;
       border: #272932;
@@ -96,6 +117,11 @@
     #clock {
       padding: 0 3px;
       margin: 0 2px;
+    }
+
+    #pulseaudio {
+      margin: 0 10px 0 0;
+	  background-color: red;
     }
   '';
   };
