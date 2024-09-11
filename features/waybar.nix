@@ -1,4 +1,7 @@
 {config, pkgs, ...}:
+let
+	icon-font = "3270 Nerd Font"; 
+in
 {
   programs.waybar = {
     enable = true;
@@ -8,7 +11,7 @@
         position = "top";
         height = 26;
         modules-left = [ "hyprland/workspaces" ];
-        modules-right = ["pulseaudio" "battery" "clock" ];
+        modules-right = ["pulseaudio" "clock" "battery"];
         
         "clock" = {
           interval = 60;
@@ -61,68 +64,63 @@
         };
 
         "pulseaudio" = {
-          format = "{volume}% <span font='3270 Nerd Font'>{icon}</span> {format_source}";
-          format-bluetooth = "{volume}% <span font='3270 Nerd Font'>{icon}󰂯</span> {format_source}";
-          format-bluetooth-muted = "<span font='3270 Nerd Font'>󰍭 {icon}󰂯</span> {format_source}";
+          format = "<span font='${icon-font}'>{icon}</span> {volume}%";
+          format-bluetooth = "<span font='${icon-font}'>{icon}󰂯</span> {volume}%";
+          format-bluetooth-muted = "<span font='${icon-font}'>󰍭 {icon}󰂯</span>";
           format-icons = {
-            default = [ "" " " " " ];
+            default = [ "" "" "" ];
             headphones = "󰋋 ";
           };
-          format-muted = "<span font='3270 Nerd Font'>󰖁</span> {format_source}";
-          format-source = "{volume}% <span font='3270 Nerd Font'></span>";
-          format-source-muted = "<span font='3270 Nerd Font'>󰍭</span>";
+          format-muted = "<span font='${icon-font}'>󰖁</span>";
+	 	  #format-source = "{volume}% <span font='${icon-font}'></span>";
+		  format-source = "";
+          format-source-muted = "<span font='${icon-font}'>󰍭</span>";
           on-click = "pavucontrol";
         };
       };
     };
 
     style = ''
-    
     * {
       border: none;
       border-radius: 0;
-      padding: 0 3px 0 0;
-      margin: 0;
       font-size: 13px;
       font-family: "JetBrainsMono Nerd Font";
     }
 
     window#waybar {
-      background: #272932;
-      color: #FFFFFF;
+      background: #${config.colorScheme.palette.base00};
+      color: #${config.colorScheme.palette.base04};
     }
 
     #workspaces { 
-      background: #272932;
-    }
-
-    #workspaces button {
-      padding: 0 2px;
-      color: #FDF6E3;
-      
+      background: #${config.colorScheme.palette.base01};
     }
 
     #workspaces button.active {
-      background: #E455Ae;
+      background: #${config.colorScheme.palette.base0E};
+	  border: none
+    }
+
+    #workspaces button.active {
+      background: #${config.colorScheme.palette.base0E};
     }
 
     #workspaces button:hover {
-      background: #272932;
-      border: #272932;
-      padding: 0 3px;
-    }
-    
-    #battery
-    #pulseaudio
-    #clock {
-      padding: 0 3px;
-      margin: 0 2px;
+      background: #${config.colorScheme.palette.base00};
     }
 
-    #pulseaudio {
-      margin: 0 10px 0 0;
-	  background-color: red;
-    }
+
+	.modules-right {
+		margin:0 10px;
+	}
+
+	#pulseaudio,
+	#clock {
+		margin: 0 5px 0 0;	
+	}
+
+	
   '';
   };
 }
