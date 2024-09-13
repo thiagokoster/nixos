@@ -91,7 +91,7 @@
 	users.users.thiagokoster = {
 		isNormalUser = true;
 		description = "thiagokoster";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "networkmanager" "wheel" "docker" ];
 		packages = with pkgs; [
 			#  thunderbird
 		];
@@ -137,6 +137,11 @@
 		gcc
 		nodejs	
 	];
+
+	# Docker
+	virtualisation.docker = {
+		enable = true;
+	};
 
 	fonts.packages = with pkgs; [
 		(nerdfonts.override {fonts = [ 
