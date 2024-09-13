@@ -54,7 +54,14 @@
 				];
 			};
 
-			bind =[
+			binde = [
+				"$mod SHIFT, l, resizeactive, 30 0" 
+				"$mod SHIFT, h, resizeactive, -30 0" 
+				"$mod SHIFT, k, resizeactive, 0 -30" 
+				"$mod SHIFT, j, resizeactive, 0 30" 
+			];
+
+			bind = [
 				# General
 				"$mod, return, exec, $terminal"
 				"$mod, D, exec, $menu"
@@ -94,6 +101,14 @@
 				"$mod, l, movefocus, r"
 				"$mod, k, movefocus, u"
 				"$mod, j, movefocus, d"
+
+				# Move active window
+				"$mod SHIFT $CONTROL, H, movewindow, l"
+				"$mod SHIFT $CONTROL, L, movewindow, r"
+				"$mod SHIFT $CONTROL, J, movewindow, d"
+				"$mod SHIFT $CONTROL, K, movewindow, u"
+
+
 			];
 		};
 	};
