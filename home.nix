@@ -79,11 +79,9 @@
 	#
 	#  /etc/profiles/per-user/thiagokoster/etc/profile.d/hm-session-vars.sh
 	#
-	home.sessionVariables = {
-		EDITOR = "nvim";
-	};
 
 
+	programs.bash.enable = true;
 	# Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
 

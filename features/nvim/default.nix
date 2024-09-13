@@ -12,9 +12,7 @@ programs.neovim = {
 		extraPackages = with pkgs; [
 			lua-language-server
 
-			cargo
-			rustc
-			rust-analyzer
+			
 
 			nil
 			gcc

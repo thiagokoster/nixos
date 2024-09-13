@@ -127,6 +127,15 @@
 		pavucontrol
 
 		swww
+		zellij
+
+		# Development
+		sqlx-cli
+		cargo
+		rustc
+		rust-analyzer
+		gcc
+		nodejs	
 	];
 
 	fonts.packages = with pkgs; [
