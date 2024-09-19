@@ -126,6 +126,8 @@
 		spotify
 		pavucontrol
 
+		kanata
+
 		swww
 		zellij
 
@@ -177,4 +179,27 @@
 	# Before changing this value read the documentation for this option
 	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 	system.stateVersion = "24.05"; # Did you read the comment?
+
+	services.kanata = {
+		enable = true;
+		keyboards = {
+			internalKeyboard = {
+				extraDefCfg = "process-unmapped-keys yes";
+				config = ''
+		    	(defsrc
+		    	  caps
+		    	)
+
+		    	(defalias
+		    	caps (tap-hold 100 100 esc lctrl)
+		    	)
+
+		    	(deflayer base
+		    	@caps
+		    	)
+				'';
+			};
+		};
+
+	};
 }
