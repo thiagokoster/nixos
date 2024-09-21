@@ -127,6 +127,7 @@
 		pavucontrol
 
 		kanata
+		obsidian
 
 		swww
 		zellij
@@ -139,6 +140,7 @@
 		gcc
 		nodejs	
 	];
+
 
 	# Docker
 	virtualisation.docker = {
@@ -191,7 +193,7 @@
 		    	)
 
 		    	(defalias
-		    	caps (tap-hold 100 100 esc lctrl)
+		    	caps (tap-hold 150 150 esc lctrl)
 		    	)
 
 		    	(deflayer base
