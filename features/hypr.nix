@@ -41,6 +41,7 @@
 			general = {
 				gaps_in = 6;
 				gaps_out = 6;
+				resize_on_border = true;
 			};
 
 			#	cursor = {

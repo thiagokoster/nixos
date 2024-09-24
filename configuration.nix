@@ -139,6 +139,8 @@
 		rust-analyzer
 		gcc
 		nodejs	
+
+		godot_4
 	];
 
 
