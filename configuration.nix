@@ -131,6 +131,7 @@
 
 		swww
 		zellij
+		unzip
 
 		# Development
 		sqlx-cli
