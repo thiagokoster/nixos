@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, chaotic, inputs, ... }:
 
 {
 	imports =
@@ -142,8 +142,8 @@
 		nodejs	
 
 		godot_4
+		godot_4-mono
 	];
-
 
 	# Docker
 	virtualisation.docker = {
