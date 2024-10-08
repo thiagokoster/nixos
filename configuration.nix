@@ -140,6 +140,7 @@
 		rust-analyzer
 		gcc
 		nodejs	
+		csharp-ls
 
 		godot_4
 		godot_4-mono
