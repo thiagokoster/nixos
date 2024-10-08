@@ -15,3 +15,5 @@ vim.o.updatetime = 300
 vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
+
+vim.opt.swapfile = false
