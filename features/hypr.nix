@@ -55,6 +55,10 @@
 				];
 			};
 
+			bindm = [
+				"$mod, mouse:272, movewindow"
+			];
+
 			binde = [
 				"$mod SHIFT, l, resizeactive, 30 0" 
 				"$mod SHIFT, h, resizeactive, -30 0" 
