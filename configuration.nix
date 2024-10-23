@@ -113,6 +113,13 @@
 	# Allow unfree packages
 	nixpkgs.config.allowUnfree = true;
 
+	# LD fix
+	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = with pkgs; [
+		# Add any missing dynamic libraries for unpackaged programs here;
+		# NOT in environment.systemPackages
+	];
+
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
@@ -141,6 +148,7 @@
 		gcc
 		nodejs	
 		csharp-ls
+		dotnet-sdk_8
 
 		godot_4
 		godot_4-mono
