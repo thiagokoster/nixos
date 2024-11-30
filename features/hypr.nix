@@ -15,6 +15,17 @@
          wl-clipboard 
        ];
 
+       gtk = {
+	       enable = true;
+	       cursorTheme = {
+		       name = "graphite-dark-nord";
+		       package = pkgs.graphite-cursors;
+		       size = 17;
+	       }; 
+       };
+
+        
+
 	# Hyprland
 	wayland.windowManager.hyprland = {
 		# Whether to enable Hyprland wayland compositor
@@ -35,7 +46,7 @@
 			"$menu" = "pkill wofi || wofi --allow-images --show drun";
 
 			exec-once = [
-				"swww init ; sleep 1 && swww img ~/.wallpapers/wallpaper1.png"
+				"swww-daemon ; sleep 1 && swww img ~/.wallpapers/wallpaper1.png"
 				"waybar"
 			];
 

@@ -2,13 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -61,6 +61,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable nix flakes
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -71,7 +74,8 @@
    pavucontrol
   ];
 
-  hardware.opengl.enable = true;
+  programs.dconf.enable = true;
+  hardware.graphics.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -82,12 +86,7 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { 
-      fonts = [
-        "3270"
-        "JetBrainsMono"
-      ];
-    })
+   nerd-fonts.jetbrains-mono
   ];
 
 

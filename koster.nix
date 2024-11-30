@@ -3,6 +3,8 @@
 {
   imports = [
     ./features/hypr.nix
+    ./features/nvim
+    ./features/mako.nix
   ];
   home.username = "koster";
   home.homeDirectory = "/home/koster";
@@ -14,15 +16,23 @@
     pkgs.firefox
   ];
 
+  home.file = {
+    ".wallpapers".source = ./features/wallpapers;
+  };
+
   programs.kitty.enable = true;
   programs.git = {
     enable = true;
     userName = "koster";
     userEmail = "thiagokoster@gmail.com";
-    extraConfig = ''
-[safe]
-directory = /etc/nixos
-'';
+    extraConfig = {
+        safe.directory = "/etc/nixos";
+    };
+
+#    extraConfig = ''
+#[safe]
+#directory = /etc/nixos
+#'';
 
   };
 
