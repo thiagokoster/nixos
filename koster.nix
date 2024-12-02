@@ -27,13 +27,8 @@
     userEmail = "thiagokoster@gmail.com";
     extraConfig = {
         safe.directory = "/etc/nixos";
+	core.editor = "vim";
     };
-
-#    extraConfig = ''
-#[safe]
-#directory = /etc/nixos
-#'';
-
   };
 
   programs.home-manager.enable = true;
