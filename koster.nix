@@ -5,6 +5,7 @@
     ./features/hypr.nix
     ./features/nvim
     ./features/mako.nix
+    ./features/godot.nix
   ];
   home.username = "koster";
   home.homeDirectory = "/home/koster";
