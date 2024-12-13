@@ -1,10 +1,14 @@
 { pkgs, config, ... }:
 
 {
-	programs.kitty.enable = true;
-	programs.kitty.font.package = pkgs.nerd-fonts.jetbrains-mono;
-	programs.kitty.font.name = "JetBrainsMono Nerd Font Mono";
-	programs.kitty.extraConfig = ''
-	'';
+	programs.kitty = {
+	  enable = true;
+	  themeFile = "Catppuccin-Mocha";
+	  font.package = pkgs.nerd-fonts.jetbrains-mono;
+	  font.name = "JetBrainsMono Nerd Font Mono";
+	  extraConfig = ''
+	    window_padding_width 4
+	  '';
+	};
 
 }
