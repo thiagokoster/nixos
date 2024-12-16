@@ -85,6 +85,21 @@
 	  pulse.enable = true;
   };
 
+   programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
+  # Enable OpenTabletDriver
+  hardware.opentabletdriver.enable = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-runtime-6.0.36"
+    "dotnet-sdk-wrapped-6.0.428"
+    "dotnet-sdk-6.0.428"
+  ];
+
+
   fonts.packages = with pkgs; [
    nerd-fonts.jetbrains-mono
   ];
