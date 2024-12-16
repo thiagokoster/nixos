@@ -13,6 +13,7 @@
          grim
          slurp
          wl-clipboard 
+	 brightnessctl
        ];
 
        gtk = {
@@ -140,6 +141,10 @@
 				"$mod SHIFT $CONTROL, K, movewindow, u"
 
 				", code:237, exec, brightnessctl -d smc::kbd_backlight s 10-"
+
+				# Adjust screen brightness
+				",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+				",XF86MonBrightnessUp, exec, brightnessctl s +10%"
 
 				# Screenshot of the focused monitor
 				", Print,  exec, grim -c -o \"$(hyprctl activeworkspace -j | jq -r '.monitor')\" && notify-send -e -t 1000 \"screenshot taken\""
