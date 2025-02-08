@@ -74,6 +74,10 @@
 
    pavucontrol
   ];
+  environment.localBinInPath = true;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   programs.dconf.enable = true;
   hardware.graphics.enable = true;
