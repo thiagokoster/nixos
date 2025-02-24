@@ -41,12 +41,20 @@ return {
 				},
 			}
 
-			lspconfig.nil_ls.setup { on_attach = on_attach, capabilities = capabilities	}
-			lspconfig.rust_analyzer.setup {	on_attach = on_attach, capabilities = capabilities }
-			lspconfig.gdscript.setup {on_attach = on_attach, capabilities = capabilities }
-			lspconfig.csharp_ls.setup {on_attach = on_attach, capabilities = capabilities }
-			lspconfig.clangd.setup {on_attach = on_attach, capabilities = capabilities }
-			lspconfig.gopls.setup {on_attach = on_attach, capabilities = capabilities }
+			local servers = { 
+				"nil_ls",
+				"rust_analyzer",
+				"gdscript",
+				"csharp_ls",
+				"clangd",
+				"gopls",
+				"ts_ls",
+				"eslint"
+			}
+
+			for _, lsp in ipairs(servers) do
+				lspconfig[lsp].setup { on_attach = on_attach, capabilities = capabilities }
+			end
 		end,
 	}
 }
