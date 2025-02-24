@@ -72,7 +72,13 @@
     wget
     obsidian
 
-   pavucontrol
+   	pavucontrol
+	# Citrix
+	citrix_workspace
+    glib-networking
+	# END Citrix
+
+	transmission-gtk
   ];
   environment.localBinInPath = true;
 
@@ -119,6 +125,7 @@
   # };
 
   # List services that you want to enable:
+  services.mullvad-vpn.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
