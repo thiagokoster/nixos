@@ -31,6 +31,14 @@
 	core.editor = "vim";
     };
   };
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      if [[ "$(tty)" == /dev/tty* ]]; then 
+        quotes random
+      fi
+    '';
+  };
 
   programs.home-manager.enable = true;
 }
