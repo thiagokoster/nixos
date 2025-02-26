@@ -16,6 +16,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+  networking.extraHosts = 
+  "
+    192.168.0.101 rocinante
+  ";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -81,6 +85,12 @@
 	transmission-gtk
   ];
   environment.localBinInPath = true;
+
+  environment.shellAliases = {
+  	nixos-switch = "sudo nixos-rebuild switch --flake /etc/nixos/flake.nix";
+  	nixos-test = "sudo nixos-rebuild test --flake /etc/nixos/flake.nix";
+  };
+
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
