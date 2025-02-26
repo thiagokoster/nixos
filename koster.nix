@@ -12,9 +12,11 @@
 
   home.stateVersion = "24.05";
 
+  nixpkgs.config.allowUnfree = true;
   home.packages = [
     pkgs.fortune
     pkgs.firefox
+	pkgs.spotify
   ];
 
   home.file = {
