@@ -81,8 +81,6 @@
 	citrix_workspace
     glib-networking
 	# END Citrix
-
-	transmission-gtk
   ];
   environment.localBinInPath = true;
 
