@@ -4,10 +4,10 @@
   imports = [
     ./waybar.nix
     ./kitty.nix
+	./wofi.nix
   ];
 
        home.packages = with pkgs; [
-         wofi
          swww
          jq
          grim
