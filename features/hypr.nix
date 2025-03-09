@@ -4,7 +4,7 @@
   imports = [
     ./waybar.nix
     ./kitty.nix
-	./wofi.nix
+	./rofi.nix
   ];
 
        home.packages = with pkgs; [
@@ -44,7 +44,7 @@
 		settings = {
 			"$mod" = "SUPER";
 			"$terminal" = "kitty";
-			"$menu" = "pkill wofi || wofi --allow-images --show drun";
+			"$menu" = "pkill rofi || rofi -show-icons -show drun";
 
 			exec-once = [
 				"swww-daemon ; sleep 1 && swww img ~/.wallpapers/wallpaper1.png"
@@ -69,6 +69,27 @@
 				gaps_out = 4;
 				resize_on_border = true;
 			};
+
+			decoration = {
+				active_opacity = 1.0;
+				inactive_opacity = 0.9;
+				fullscreen_opacity = 1.0;
+				blur = {
+					enabled = true;
+						size = 8;
+						passes = 3;
+						new_optimizations = true;
+						ignore_opacity = true;
+						xray = true;
+						popups = true;
+						blurls = ["waybar" "rofi"];
+				};
+			};
+
+			layerrule = [
+				"ignorezero, rofi"
+			];
+
 
 			#	cursor = {
 			#	cur	enable_hyprcursor = true;
