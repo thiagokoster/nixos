@@ -2,7 +2,16 @@ return {
 	"folke/neodev.nvim",
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
+	    dependencies = { 'saghen/blink.cmp' },
+		opts = {
+			servers = {
+				lua_ls = {},
+				rust_analyzer = {},
+				nil_ls = {}
+			}
+		},
+		config = function(_, opts)
+
 			local on_attach = function(_, bufnr)
 				local bufmap = function(keys, func)
 					vim.keymap.set('n', keys, func, { buffer = bufnr })
@@ -25,35 +34,14 @@ return {
 				end, {})
 			end
 
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-
-			local lspconfig = require("lspconfig")
 
 			require("neodev").setup()
-			lspconfig.lua_ls.setup {
-				on_attach = on_attach,
-				capabilities = capabilities,
-				Lua = {
-					workspace = { checkThirdParty = false },
-					telemetry = { enable = false },
-				},
-			}
 
-			local servers = { 
-				"nil_ls",
-				"rust_analyzer",
-				"gdscript",
-				"csharp_ls",
-				"clangd",
-				"gopls",
-				"ts_ls",
-				"eslint"
-			}
-
-			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup { on_attach = on_attach, capabilities = capabilities }
+			local lspconfig = require("lspconfig")
+			for server, config in pairs(opts.servers) do
+				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+				config.on_attach = on_attach
+				lspconfig[server].setup(config)
 			end
 		end,
 	}
