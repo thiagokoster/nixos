@@ -7,7 +7,10 @@ return {
 			servers = {
 				lua_ls = {},
 				rust_analyzer = {},
-				nil_ls = {}
+				csharp_ls = {},
+				nil_ls = {},
+				ts_ls = {},
+				eslint = {},
 			}
 		},
 		config = function(_, opts)
