@@ -17,6 +17,8 @@
     pkgs.fortune
     pkgs.firefox
 	pkgs.spotify
+
+	pkgs.jetbrains.idea-community
   ];
 
   home.file = {

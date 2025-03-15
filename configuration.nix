@@ -75,6 +75,7 @@
     zellij
     wget
     obsidian
+	unzip
 
    	pavucontrol
 	# Citrix
