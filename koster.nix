@@ -1,9 +1,9 @@
-{config, pkgs, ...}:
+{pkgs, inputs, ...}:
 
 {
   imports = [
     ./features/hypr.nix
-    ./features/nvim
+    (import ./features/nvim {inherit pkgs inputs; })
     ./features/mako.nix
     ./features/godot.nix
   ];

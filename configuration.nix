@@ -60,7 +60,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
-  home-manager.users.koster = import ./koster.nix;
+  home-manager.users.koster = import ./koster.nix {inherit pkgs inputs; };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
