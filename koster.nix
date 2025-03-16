@@ -19,6 +19,7 @@
 	pkgs.spotify
 
 	pkgs.jetbrains.idea-community
+	pkgs.dbeaver-bin
   ];
 
   home.sessionPath = [
