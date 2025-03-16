@@ -21,6 +21,10 @@
 	pkgs.jetbrains.idea-community
   ];
 
+  home.sessionPath = [
+  	"$HOME/.cargo/bin/"
+  ];
+
   home.file = {
     ".wallpapers".source = ./features/wallpapers;
   };
@@ -45,4 +49,16 @@
   };
 
   programs.home-manager.enable = true;
+
+  xdg.desktopEntries."org.godotengine.Godot4" = {
+	  name = "Godot Engine 4";
+	  exec = "godot4 --single-window";
+	  icon = "godot";
+  };
+
+  xdg.desktopEntries."com.jetbrains.IDEA" = {
+	  name = "Intellij IDEA CE (Wayland)";
+	  exec = "idea-community -Dawt.toolkit.name=WLToolkit";
+	  icon = "idea-community";
+  };
 }

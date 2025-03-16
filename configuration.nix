@@ -57,10 +57,13 @@
   users.users.koster = {
     isNormalUser = true;
     description = "koster";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
   home-manager.users.koster = import ./koster.nix {inherit pkgs inputs; };
+
+  # Enable docker
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -76,6 +79,7 @@
     wget
     obsidian
 	unzip
+	docker-compose
 
    	pavucontrol
 	# Citrix
