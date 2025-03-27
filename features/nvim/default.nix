@@ -12,16 +12,10 @@ programs.neovim = {
 
 		extraPackages = with pkgs; [
 			lua-language-server
-
-			
-
 			nil
 			gcc
-
 			ripgrep
-
 			xclip
-			wl-clipboard
 		];
 	};
 

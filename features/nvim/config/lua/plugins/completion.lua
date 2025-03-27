@@ -14,6 +14,17 @@ return {
 				menu = { border = 'single' },
 				documentation = { window = { border = 'single' } },
 			},
+			sources = {
+				default = { 'lsp', 'path', 'snippets', 'buffer' },
+				providers = {
+					snippets = {
+						should_show_items = function(ctx)
+							return ctx.trigger.initial_kind ~= 'trigger_character'
+						end,
+					}
+				}
+			},
+
 			signature = {
 				enabled = true,
 				window = { border = 'single' }
