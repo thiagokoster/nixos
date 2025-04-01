@@ -1,31 +1,31 @@
 {pkgs, ...}:
 
 {
-  imports = [
-    ./waybar.nix
-    ./kitty.nix
-	./rofi.nix
-  ];
+	imports = [
+		./waybar.nix
+			./kitty.nix
+			./rofi.nix
+	];
 
-       home.packages = with pkgs; [
-         swww
-         jq
-         grim
-         slurp
-         wl-clipboard 
-	 brightnessctl
-       ];
+	home.packages = with pkgs; [
+		swww
+			jq
+			grim
+			slurp
+			wl-clipboard 
+			brightnessctl
+	];
 
-       gtk = {
-	       enable = true;
-	       cursorTheme = {
-		       name = "graphite-dark-nord";
-		       package = pkgs.graphite-cursors;
-		       size = 17;
-	       }; 
-       };
+	gtk = {
+		enable = true;
+		cursorTheme = {
+			name = "Bibata-Modern-Ice";
+			package = pkgs.bibata-cursors;
+			size = 16;
+		}; 
+	};
 
-        
+
 
 	# Hyprland
 	wayland.windowManager.hyprland = {
@@ -39,8 +39,8 @@
 		# Optional
 		# Whether to enable hyprland-session.target on hyprland startup
 		systemd.enable = true;
-                
-               
+
+
 		settings = {
 			"$mod" = "SUPER";
 			"$terminal" = "kitty";
@@ -48,17 +48,23 @@
 
 			exec-once = [
 				"swww-daemon ; sleep 1 && swww img ~/.wallpapers/wallpaper1.png"
-				"waybar"
+					"waybar"
 			];
 
 			env = [
-				"XCURSOR_SIZE,17" #TODO: This should be set in the theme.nix file as well.
-				"XCURSOR_THEME,graphite-dark-nord"
+				"XCURSOR_SIZE,16" #TODO: This should be set in the theme.nix file as well.
+				"XCURSOR_THEME,Bibata-Modern-Ice"
+			];
+
+			windowrulev2 = [
+				"float, class:org.pulseaudio.pavucontrol"
+					"decorate, class:org.pulseaudio.pavucontrol"
+					"center, class:org.pulseaudio.pavucontrol"
 			];
 
 			misc = {
 				disable_hyprland_logo = true;
-	 		};
+			};
 
 			xwayland = {
 				force_zero_scaling = true;
@@ -76,13 +82,13 @@
 				fullscreen_opacity = 1.0;
 				blur = {
 					enabled = true;
-						size = 8;
-						passes = 3;
-						new_optimizations = true;
-						ignore_opacity = true;
-						xray = true;
-						popups = true;
-						blurls = ["waybar" "rofi"];
+					size = 8;
+					passes = 3;
+					new_optimizations = true;
+					ignore_opacity = true;
+					xray = true;
+					popups = true;
+					blurls = ["waybar" "rofi"];
 				};
 			};
 
@@ -122,7 +128,7 @@
 				"$mod, M, exit"
 
 				# Screen focus
-            	"$mod, v, togglefloating"
+				"$mod, v, togglefloating"
 				"$mod, f, fullscreen"
 
 				# Switch workspaces with mainMod + [0-9]
@@ -161,6 +167,7 @@
 				"$mod SHIFT $CONTROL, J, movewindow, d"
 				"$mod SHIFT $CONTROL, K, movewindow, u"
 
+				# Change keyboard backlight
 				", code:237, exec, brightnessctl -d smc::kbd_backlight s 10-"
 
 				# Adjust screen brightness
@@ -171,7 +178,7 @@
 				", Print,  exec, grim -c -o \"$(hyprctl activeworkspace -j | jq -r '.monitor')\" && notify-send -e -t 1000 \"screenshot taken\""
 				# Screenshot of region
 				"$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Pictures/Screenshot-$(date +%F_%T).png && notify-send -e -t 1000 \"screenshot taken\""
-			];
+					];
 		};
 	};
 
