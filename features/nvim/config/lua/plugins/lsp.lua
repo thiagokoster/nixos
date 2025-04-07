@@ -7,7 +7,6 @@ return {
 			servers = {
 				lua_ls = {},
 				rust_analyzer = {},
-				csharp_ls = {},
 				nil_ls = {},
 				ts_ls = {},
 				eslint = {},
