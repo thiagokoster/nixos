@@ -47,7 +47,7 @@
 			"$menu" = "pkill rofi || rofi -show-icons -show drun";
 
 			exec-once = [
-				"swww-daemon ; sleep 1 && swww img ~/.wallpapers/wallpaper1.png"
+				"swww-daemon ; sleep 1 && swww img ~/.wallpapers/wallpaper-2.png"
 					"waybar"
 			];
 
