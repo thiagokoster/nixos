@@ -3,17 +3,17 @@
 {
 	imports = [
 		./waybar.nix
-			./kitty.nix
-			./rofi.nix
+		./kitty.nix
+		./rofi.nix
 	];
 
 	home.packages = with pkgs; [
 		swww
-			jq
-			grim
-			slurp
-			wl-clipboard 
-			brightnessctl
+		jq
+		grim
+		slurp
+		wl-clipboard 
+		brightnessctl
 	];
 
 	gtk = {
@@ -48,7 +48,7 @@
 
 			exec-once = [
 				"swww-daemon ; sleep 1 && swww img ~/.wallpapers/wallpaper-2.png"
-					"waybar"
+				"waybar"
 			];
 
 			env = [
@@ -58,8 +58,8 @@
 
 			windowrulev2 = [
 				"float, class:org.pulseaudio.pavucontrol"
-					"decorate, class:org.pulseaudio.pavucontrol"
-					"center, class:org.pulseaudio.pavucontrol"
+				"decorate, class:org.pulseaudio.pavucontrol"
+				"center, class:org.pulseaudio.pavucontrol"
 			];
 
 			misc = {
@@ -178,7 +178,7 @@
 				", Print,  exec, grim -c -o \"$(hyprctl activeworkspace -j | jq -r '.monitor')\" && notify-send -e -t 1000 \"screenshot taken\""
 				# Screenshot of region
 				"$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Pictures/Screenshot-$(date +%F_%T).png && notify-send -e -t 1000 \"screenshot taken\""
-					];
+			];
 		};
 	};
 
@@ -192,7 +192,7 @@
 			};
 			extraPortals = [
 				pkgs.xdg-desktop-portal-gtk
-					pkgs.xdg-desktop-portal-hyprland
+				pkgs.xdg-desktop-portal-hyprland
 			];
 		};
 	};
