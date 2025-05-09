@@ -10,6 +10,7 @@ return {
 				nil_ls = {},
 				ts_ls = {},
 				eslint = {},
+				clangd = {},
 			}
 		},
 		config = function(_, opts)
