@@ -8,7 +8,6 @@
 	];
 
 	home.packages = with pkgs; [
-		swww
 		jq
 		grim
 		slurp
@@ -26,6 +25,21 @@
 	};
 
 
+	services.hyprpaper = {
+		enable = true;
+		settings = {
+			ipc = "on";
+			preload = [
+				"~/.wallpapers/wallpaper-2.png"
+				"~/.wallpapers/saturn.png"
+			];
+			wallpaper = [
+				"eDP-1,~/.wallpapers/wallpaper-2.png"
+				"DP-1,~/.wallpapers/saturn.png"
+			];
+		};
+
+	};
 
 	# Hyprland
 	wayland.windowManager.hyprland = {
@@ -40,14 +54,18 @@
 		# Whether to enable hyprland-session.target on hyprland startup
 		systemd.enable = true;
 
-
 		settings = {
 			"$mod" = "SUPER";
 			"$terminal" = "kitty";
 			"$menu" = "pkill rofi || rofi -show-icons -show drun";
 
+			monitor = [
+				"eDP-1, 1920x1200, 0x0, 1"
+				"DP-1,3440x1440@59.97Hz, 1920x0, 1"
+				", preferred, auto, 1"
+			];
+
 			exec-once = [
-				"swww-daemon ; sleep 1 && swww img ~/.wallpapers/wallpaper-2.png"
 				"waybar"
 			];
 
