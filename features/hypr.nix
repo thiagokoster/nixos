@@ -60,7 +60,7 @@
 			"$menu" = "pkill rofi || rofi -show-icons -show drun";
 
 			monitor = [
-				"eDP-1, 1920x1200, 0x0, 1"
+				"eDP-1, 1920x1200, 0x0, 1.1"
 				"DP-1,3440x1440@59.97Hz, 1920x0, 1"
 				", preferred, auto, 1"
 			];
@@ -80,6 +80,10 @@
 				"center, class:org.pulseaudio.pavucontrol"
 			];
 
+			windowrule = [
+				"opacity 0.9 0.9, ^(kitty)$"
+			];
+
 			misc = {
 				disable_hyprland_logo = true;
 			};
@@ -92,11 +96,13 @@
 				gaps_in = 2;
 				gaps_out = 4;
 				resize_on_border = true;
+
+				"col.active_border" = "rgb(B5E8A9)";
+
 			};
 
 			decoration = {
 				active_opacity = 1.0;
-				inactive_opacity = 0.9;
 				fullscreen_opacity = 1.0;
 				blur = {
 					enabled = true;
