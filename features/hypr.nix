@@ -60,7 +60,7 @@
 			"$menu" = "pkill rofi || rofi -show-icons -show drun";
 
 			monitor = [
-				"eDP-1, 1920x1200, 0x0, 1.1"
+				"eDP-1, 1920x1200, 0x0, 1"
 				"DP-1,3440x1440@59.97Hz, 1920x0, 1"
 				", preferred, auto, 1"
 			];
