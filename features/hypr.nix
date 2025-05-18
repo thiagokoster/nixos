@@ -78,6 +78,8 @@
 				"float, class:org.pulseaudio.pavucontrol"
 				"decorate, class:org.pulseaudio.pavucontrol"
 				"center, class:org.pulseaudio.pavucontrol"
+				"tile,initialTitle:^(Godot)$,initialClass:^(Godot)$"
+				"float,title:^((.*)(DEBUG)),initialTitle:^(Godot)$"
 			];
 
 			windowrule = [

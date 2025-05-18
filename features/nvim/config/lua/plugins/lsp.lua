@@ -2,7 +2,7 @@ return {
 	"folke/neodev.nvim",
 	{
 		"neovim/nvim-lspconfig",
-	    dependencies = { 'saghen/blink.cmp' },
+		dependencies = { 'saghen/blink.cmp' },
 		opts = {
 			servers = {
 				lua_ls = {},
@@ -11,6 +11,8 @@ return {
 				ts_ls = {},
 				eslint = {},
 				clangd = {},
+				csharp_ls = {}
+				-- TODO: Add server for c# here
 			}
 		},
 		config = function(_, opts)
@@ -19,6 +21,7 @@ return {
 				local bufmap = function(keys, func)
 					vim.keymap.set('n', keys, func, { buffer = bufnr })
 				end
+				print("Attached shortcuts!")
 
 				bufmap('<leader>r', vim.lsp.buf.rename)
 				bufmap('<leader>a', vim.lsp.buf.code_action)
