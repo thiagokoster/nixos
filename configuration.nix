@@ -28,6 +28,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.wireguard.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
@@ -86,6 +87,7 @@
 	citrix_workspace
     glib-networking
 	# END Citrix
+	wireguard-tools
   ];
   environment.localBinInPath = true;
 
