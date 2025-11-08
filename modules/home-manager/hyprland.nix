@@ -1,4 +1,4 @@
-{config, ...}:
+{pkgs, ...}:
 
 {
   imports = [
@@ -6,6 +6,11 @@
   ./kitty.nix
   ./waybar.nix
   ];
+
+  home.packages = with pkgs; [
+    brightnessctl
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -30,9 +35,30 @@
         9)
       );
 
+      bindl = [
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
+      bindel = [
+      	# Adjust screen brightness
+				", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+				", XF86MonBrightnessUp, exec, brightnessctl s +10%"
+
+      	# Adjust volume
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
+
       exec-once = [
         "waybar"
       ];
+
+      animations = {
+        enabled = true;
+        animation = [
+          "workspaces, 0"
+        ];
+      };
     };
   };
 }

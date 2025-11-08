@@ -4,6 +4,7 @@
   imports =
     [
       ../../modules/home-manager/git.nix
+      ../../modules/home-manager/fish.nix
       ../../modules/home-manager/hyprland.nix
     ];
 
@@ -19,7 +20,6 @@
   home.packages = [
     pkgs.ripgrep
     inputs.nixvim-custom.packages."x86_64-linux".default
-    pkgs.zig
   ];
 
   home.file = {

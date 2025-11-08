@@ -16,8 +16,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Hyprland
   programs.hyprland.enable = true;
+  programs.fish.enable = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -62,6 +62,7 @@
     isNormalUser = true;
     description = "Thiago";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [];
   };
 
