@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -19,8 +19,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.hello
-    pkgs.cowsay
+    inputs.nixvim-custom.packages."x86_64-linux".default
 
   ];
 
