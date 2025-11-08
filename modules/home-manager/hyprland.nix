@@ -1,13 +1,20 @@
 {config, ...}:
 
 {
+  imports = [
+  ./wofi.nix
+  ./kitty.nix
+  ./waybar.nix
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       "$mod" = "SUPER";
+      "$menu" = "pkill wofi || wofi --allow-images --show drun";
       bind = [
         "$mod, F, exec, firefox"
         "$mod, Q, killactive"
+        "$mod, D, exec, $menu"
         "$mod, RETURN, exec, kitty"
       ]
       ++ (
