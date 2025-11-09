@@ -21,6 +21,18 @@
         "$mod, Q, killactive"
         "$mod, D, exec, $menu"
         "$mod, RETURN, exec, kitty"
+
+        # Navigation
+				"$mod, H, movefocus, l"
+				"$mod, L, movefocus, r"
+				"$mod, K, movefocus, u"
+				"$mod, J, movefocus, d"
+
+        # Move active window
+				"$mod SHIFT, H, movewindow, l"
+				"$mod SHIFT, L, movewindow, r"
+				"$mod SHIFT, J, movewindow, d"
+				"$mod SHIFT, K, movewindow, u"
       ]
       ++ (
         # workspaces
