@@ -16,6 +16,12 @@
     settings = {
       "$mod" = "SUPER";
       "$menu" = "pkill wofi || wofi --allow-images --show drun";
+
+      general = {
+        gaps_in = 0;
+        gaps_out = 0;
+      };
+
       bind = [
         "$mod, F, exec, firefox"
         "$mod, Q, killactive"
