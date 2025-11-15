@@ -1,20 +1,25 @@
 {
   description = "My flake";
   inputs = {
-# Nixpkgs
+    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-25.05";
 
-# Home manager
+    # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim-custom.url = "github:thiagokoster/nixvim";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, nixvim-custom, ... }:
+  outputs = inputs@{ self,
+  nixpkgs,
+  nixpkgs-stable,
+  nixvim-custom,
+  nix-colors, ... }:
     let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
