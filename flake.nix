@@ -11,14 +11,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim-custom.url = "github:thiagokoster/nixvim";
+    nvf.url = "github:notashelf/nvf";
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = inputs@{ self,
   nixpkgs,
   nixpkgs-stable,
-  nixvim-custom,
+  nvf,
   nix-colors, ... }:
     let
     system = "x86_64-linux";
@@ -28,6 +28,7 @@
       nixosConfigurations.razorback = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          nvf.nixosModules.default
           ./hosts/razorback/configuration.nix 
         ];
       };

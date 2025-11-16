@@ -6,6 +6,7 @@
       ../../modules/home-manager/fish.nix
       ../../modules/home-manager/hyprland.nix
       ../../modules/home-manager/hyprpaper.nix
+      ../../modules/home-manager/nvf-configuration.nix
       inputs.nix-colors.homeManagerModules.default
     ];
 
@@ -22,7 +23,6 @@
   # environment.
   home.packages = with pkgs; [
     ripgrep
-    inputs.nixvim-custom.packages."x86_64-linux".default
 
     zellij
   ];
