@@ -71,6 +71,7 @@
     users = {
       "koster" = import ./home.nix;
     };
+    useGlobalPkgs = true;
   };
 
   # Allow unfree packages
