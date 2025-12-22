@@ -17,6 +17,9 @@
             "$mod" = "SUPER";
             "$menu" = "pkill wofi || wofi --allow-images --show drun";
 
+            monitor = [
+        "eDP-1, 1920x1200, 0x0, 1"
+      ];
             general = {
                 gaps_in = 0;
                 gaps_out = 0;
