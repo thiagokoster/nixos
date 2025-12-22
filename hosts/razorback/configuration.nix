@@ -24,6 +24,15 @@
 
   networking.hostName = "razorback"; # Define your hostname.
 
+  # enable bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
+  # qmk
+  hardware.keyboard.qmk.enable = true;
+
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -32,6 +41,14 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  services.pipewire = {
+  enable = true;
+  alsa.enable = true;
+  pulse.enable = true; # Emulate PulseAudio for compatibility
+  # Enable PipeWire's Bluetooth integration
+  wireplumber.enable = true;
+};
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
@@ -61,7 +78,7 @@
   users.users.koster = {
     isNormalUser = true;
     description = "Thiago";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
     packages = with pkgs; [];
   };
@@ -79,18 +96,30 @@
 
   programs.firefox.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+  };
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     kitty
     wget
+    qmk
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
 
+  # In /etc/nixos/configuration.nix
+  virtualisation.docker = {
+    enable = true;
+  };
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
