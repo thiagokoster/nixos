@@ -26,7 +26,7 @@
             };
 
             bind = [
-                "$mod, F, exec, firefox"
+                "$mod, F, fullscreen"
                 "$mod, Q, killactive"
                 "$mod, D, exec, $menu"
                 "$mod, RETURN, exec, kitty"
