@@ -7,19 +7,21 @@
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nvf.url = "github:notashelf/nvf";
     nix-colors.url = "github:misterio77/nix-colors";
+    opencode.url = "github:anomalyco/opencode";
   };
 
   outputs = inputs@{ self,
   nixpkgs,
   nixpkgs-stable,
   nvf,
-  nix-colors, ... }:
+  nix-colors,
+  opencode, ... }:
     let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};

@@ -3,8 +3,11 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "${inputs.self}/wallpapers/saturn.png" ];
-      wallpaper = [ ", ${inputs.self}/wallpapers/saturn.png" ];
+      splash = false;
+      wallpaper = {
+        monitor = "";
+        path = "${inputs.self}/wallpapers/saturn.png";
+      };
     };
   };
 }

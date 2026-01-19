@@ -9,6 +9,10 @@
     interactiveShellInit = ''
       nix-your-shell fish | source
     '';
+    shellAliases = {
+      rebuild = "sudo nixos-rebuild switch --flake /home/koster/.nixos#razorback";
+      retest = "sudo nixos-rebuild test --flake /home/koster/.nixos#razorback";
+    };
   };
 
   programs.starship = {
