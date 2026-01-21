@@ -12,8 +12,12 @@
           style = "dark";
         };
         options = {
-          tabstop = 2;
-          shiftwidth = 2;
+          tabstop = 4;
+          softtabstop = 4;
+          shiftwidth = 4;
+          autoindent = true;
+          smartindent = true;
+          expandtab = true;
         };
 
         clipboard = {
@@ -33,7 +37,10 @@
 
         autocomplete.blink-cmp.enable = true;
         lsp.enable = true;
-        treesitter.enable = true;
+        treesitter = {
+            enable = true;
+            indent.enable = false;
+        };
 
         languages = {
           nix.enable = true;
