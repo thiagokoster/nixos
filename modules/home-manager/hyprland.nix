@@ -9,6 +9,9 @@
 
     home.packages = with pkgs; [
         brightnessctl
+        grim
+        slurp
+        wl-clipboard
     ];
 
     wayland.windowManager.hyprland = {
@@ -30,6 +33,7 @@
                 "$mod, Q, killactive"
                 "$mod, D, exec, $menu"
                 "$mod, RETURN, exec, kitty"
+                "$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"
 
                 # Navigation
                 "$mod, H, movefocus, l"
