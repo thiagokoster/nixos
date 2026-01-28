@@ -7,6 +7,7 @@
       ../../modules/home-manager/hyprland.nix
       ../../modules/home-manager/hyprpaper.nix
       ../../modules/home-manager/nvf-configuration.nix
+      ../../modules/home-manager/godot-mono.nix
       inputs.nix-colors.homeManagerModules.default
     ];
 
@@ -29,6 +30,9 @@
     claude-code
     openttd
     spotify
+
+    dotnet-sdk_8
+    dbus
   ] ++ [
     inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

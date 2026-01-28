@@ -19,6 +19,32 @@
   programs.hyprland.enable = true;
   programs.fish.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      fontconfig
+      freetype
+      libxkbcommon
+
+      xorg.libX11
+      xorg.libXcursor
+      xorg.libXrandr
+      xorg.libXi
+      xorg.libXext
+      xorg.libXrender
+      xorg.libXfixes
+      xorg.libXinerama
+
+      wayland
+      libdecor
+
+      libGL
+      vulkan-loader
+
+      dbus
+    ];
+  };
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
