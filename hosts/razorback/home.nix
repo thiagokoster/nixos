@@ -30,6 +30,9 @@
     claude-code
     openttd
     spotify
+    protonvpn-gui
+    discord
+    vlc
 
     dotnet-sdk_8
     dbus

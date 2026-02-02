@@ -84,6 +84,17 @@
                 "waybar"
             ];
 
+            windowrule = [
+                {
+                    name = "Firefox Picture-in-Picture";
+                    "match:class" = "firefox";
+                    "match:title" = "(Picture-in-Picture)";
+                    float = "on";
+                    size = "960 540";
+                    move = "(monitor_w-window_w) 20";
+                }
+            ];
+
             animations = {
                 enabled = true;
                 animation = [
