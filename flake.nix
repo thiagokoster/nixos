@@ -11,6 +11,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Niri
+    niri = {
+        url = "github:sodiboo/niri-flake";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     nvf.url = "github:notashelf/nvf";
     nix-colors.url = "github:misterio77/nix-colors";
     opencode.url = "github:anomalyco/opencode";
@@ -20,6 +27,7 @@
   nixpkgs,
   nixpkgs-stable,
   nvf,
+  niri,
   nix-colors,
   opencode, ... }:
     let
@@ -30,8 +38,9 @@
       nixosConfigurations.razorback = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          nvf.nixosModules.default
-          ./hosts/razorback/configuration.nix 
+            nvf.nixosModules.default
+            niri.nixosModules.niri
+            ./hosts/razorback/configuration.nix 
         ];
       };
     };

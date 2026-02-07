@@ -16,7 +16,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  programs.hyprland.enable = true;
+  programs.niri.enable = true;
   programs.fish.enable = true;
 
   programs.nix-ld = {
@@ -135,6 +135,9 @@
     kitty
     wget
     qmk
+
+    #TODO: This is temporary for niri
+    fuzzel
   ];
 
   fonts.packages = with pkgs; [

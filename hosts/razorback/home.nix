@@ -4,10 +4,9 @@
     [
       ../../modules/home-manager/git.nix
       ../../modules/home-manager/fish.nix
-      ../../modules/home-manager/hyprland.nix
-      ../../modules/home-manager/hyprpaper.nix
       ../../modules/home-manager/nvf-configuration.nix
       ../../modules/home-manager/godot-mono.nix
+      ../../modules/home-manager/niri.nix
       inputs.nix-colors.homeManagerModules.default
     ];
 
@@ -33,11 +32,11 @@
     protonvpn-gui
     discord
     vlc
+    blender
+    prusa-slicer
 
     dotnet-sdk_8
     dbus
-  ] ++ [
-    inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.file = {

@@ -14,7 +14,7 @@ in
 			position = "top";
 			mod = "dock";
 			height = 26;
-			modules-left = [ "hyprland/workspaces" ];
+			modules-left = [ "niri/workspaces" ];
 			modules-right = [ "clock" "pulseaudio" "network" "battery" ];
 
 			network = {
