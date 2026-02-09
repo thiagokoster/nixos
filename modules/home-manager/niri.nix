@@ -21,9 +21,24 @@
                     { proportion = 2. / 3.; }
                 ];
             };
+
             spawn-at-startup = [
                 { command = ["waybar"]; }
             ];
+
+            window-rules = [
+                {
+                    matches = [
+                    {
+                        app-id = "firefox$";
+                        title = "^Picture-in-Picture$";
+                    }
+                    ];
+                    open-floating = true;
+                }
+            ];
+
+
             binds = with config.lib.niri.actions; {
                 "Mod+Shift+Slash".action = show-hotkey-overlay;
                 "Mod+T".action = spawn "kitty";

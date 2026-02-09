@@ -34,6 +34,7 @@
     vlc
     blender
     prusa-slicer
+    freecad
 
     dotnet-sdk_8
     dbus
