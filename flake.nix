@@ -2,8 +2,8 @@
   description = "My flake";
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     # Home manager
     home-manager = {
@@ -18,14 +18,22 @@
     };
 
 
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+        url = "github:notashelf/nvf";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    opencode = {
+        url = "github:anomalyco/opencode";
+        inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     nix-colors.url = "github:misterio77/nix-colors";
-    opencode.url = "github:anomalyco/opencode";
   };
 
   outputs = inputs@{ self,
   nixpkgs,
-  nixpkgs-stable,
+  nixpkgs-unstable,
   nvf,
   niri,
   nix-colors,

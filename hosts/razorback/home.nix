@@ -26,7 +26,6 @@
 
     zellij
     obsidian
-    claude-code
     openttd
     spotify
     protonvpn-gui
@@ -38,6 +37,8 @@
 
     dotnet-sdk_8
     dbus
+  ] ++ [
+      inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.file = {
