@@ -1,4 +1,4 @@
-{config, inputs, ...}: 
+{config, inputs, pkgs, ...}: 
 
 {
     imports = [
@@ -8,6 +8,11 @@
 
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
+  ];
+
+  home.packages = with pkgs; [
+    brightnessctl
+    wireplumber # provides wpctl
   ];
 
     programs.niri = {
@@ -39,7 +44,7 @@
             ];
 
 
-            binds = with config.lib.niri.actions; {
+             binds = with config.lib.niri.actions; {
                 "Mod+Shift+Slash".action = show-hotkey-overlay;
                 "Mod+T".action = spawn "kitty";
                 "Mod+D".action = spawn "fuzzel";
@@ -88,12 +93,16 @@
                 "Mod+BracketLeft".action = consume-or-expel-window-left;
                 "Mod+BracketRight".action = consume-or-expel-window-right;
 
-                # Fn keys
-                    "XF86MonBrightnessUp".action = spawn "brightnessctl s +10%";
-    "XF86MonBrightnessDown".action = spawn "brightnessctl s -10%";
+                 # Fn keys
+                "XF86AudioMute".action = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+                "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+";
+                "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "5%-";
+
+                "XF86MonBrightnessUp".action = spawn "brightnessctl" "s" "+10%";
+                "XF86MonBrightnessDown".action = spawn "brightnessctl" "s" "10%-";
 
                 "Mod+Shift+E".action = quit;
-            };
-        };
-    };
+             };
+         };
+     };
 }
