@@ -39,6 +39,7 @@
     dbus
   ] ++ [
       inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.openspec.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.file = {

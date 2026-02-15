@@ -45,6 +45,7 @@
         languages = {
           nix.enable = true;
           zig.enable = true;
+          odin.enable = true;
         };
 
         maps.normal."<leader>e" = {

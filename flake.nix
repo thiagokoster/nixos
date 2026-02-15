@@ -28,6 +28,11 @@
         inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    openspec = {
+        url = "github:Fission-AI/OpenSpec";
+        inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
@@ -37,7 +42,9 @@
   nvf,
   niri,
   nix-colors,
-  opencode, ... }:
+  opencode,
+  openspec,
+  ... }:
     let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
