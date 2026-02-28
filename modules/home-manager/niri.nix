@@ -13,6 +13,8 @@
   home.packages = with pkgs; [
     brightnessctl
     wireplumber # provides wpctl
+
+    xwayland-satellite # xwayland support
   ];
 
     programs.niri = {
