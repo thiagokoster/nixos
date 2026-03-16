@@ -15,7 +15,7 @@ in
 			mod = "dock";
 			height = 26;
 			modules-left = [ "niri/workspaces" ];
-			modules-right = [ "clock" "pulseaudio" "network" "battery" ];
+			modules-right = [ "clock" "pulseaudio" "network" "battery" "niri/language" ];
 
 			network = {
 				format-wifi = "󰖩";
@@ -66,10 +66,9 @@ in
 				on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -2%";
 			};
 
-
-
-
-
+            "niri/language" = {
+                format = "  {short}";
+            };
 		}];
 
 		style = ''
@@ -119,7 +118,7 @@ window#waybar {
 }
 
 /* Common module styling */
-#network, #clock, #battery, #pulseaudio {
+#network, #clock, #battery, #pulseaudio, #language {
 	padding: 0 10px;
 	margin: 0 2px;
 }

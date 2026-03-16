@@ -19,6 +19,15 @@
 
     programs.niri = {
         settings = {
+            input = {
+                keyboard = {
+                    xkb = {
+                        layout = "us, se";
+                        options = "grp:win_space_toggle"; 
+                    };
+                };
+            };
+
             layout = {
                 gaps = 16;
                 default-column-width = { proportion = 1. / 2.; };
