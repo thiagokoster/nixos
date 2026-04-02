@@ -7,12 +7,19 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # NV (Neovim)
+    nvf = {
+        url = "github:notashelf/nvf";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nvf,
     ...
    } @ inputs: {
     nixosConfigurations.razorback = nixpkgs.lib.nixosSystem {

@@ -14,6 +14,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Fingerprint
+  services.fprintd.enable = true;
+
+ # Setup PAM
+ security.pam.services = {
+   swaylock = {
+      fprintAuth = true;
+   };
+ };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;
@@ -67,12 +77,14 @@
     variant = "";
   };
 
+  programs.fish.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.koster = {
     isNormalUser = true;
     description = "Thiago";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
@@ -82,6 +94,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     ffmpeg
   #  wget
      
      # Niri initial setup

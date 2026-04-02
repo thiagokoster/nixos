@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 {
+  home.stateVersion = "25.05";
   home.username = "koster";
   home.homeDirectory = "/home/koster";
 
-  home.stateVersion = "25.05";
-
   imports = [
     ../modules/niri
+    ../modules/nvf.nix
+    ../modules/swaylock.nix
+    ../modules/fish.nix
   ];
 
   programs.git = {
@@ -22,6 +24,7 @@
 
   home.packages = with pkgs; [
     firefox
+    obsidian
   ];
 
   # Let Home Manager install and manage itself
