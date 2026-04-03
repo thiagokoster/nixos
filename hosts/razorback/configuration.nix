@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  powerManagement.enable = true;
+  services.logind.lidSwitch = "suspend-then-hibernate";
+
   # Fingerprint
   services.fprintd.enable = true;
 
