@@ -23,8 +23,11 @@
   };
 
   home.packages = with pkgs; [
+    nixfmt
     firefox
     obsidian
+    freecad
+    prusa-slicer
   ];
 
   # Let Home Manager install and manage itself

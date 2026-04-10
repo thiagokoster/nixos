@@ -10,8 +10,8 @@
       nix-your-shell fish | source
     '';
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake /home/koster/.nixos#razorback";
-      retest = "sudo nixos-rebuild test --flake /home/koster/.nixos#razorback";
+      nixos-rebuild = "sudo nixos-rebuild switch --flake /home/koster/.nixos#razorback";
+      nixos-test = "sudo nixos-rebuild test --flake /home/koster/.nixos#razorback";
     };
   };
 
