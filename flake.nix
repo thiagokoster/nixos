@@ -10,25 +10,27 @@
 
     # NV (Neovim)
     nvf = {
-        url = "github:notashelf/nvf";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nvf,
-    ...
-   } @ inputs: {
-    nixosConfigurations.razorback = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/razorback/configuration.nix
-        home-manager.nixosModules.home-manager
-      ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nvf,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.razorback = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/razorback/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
     };
-  };
 }

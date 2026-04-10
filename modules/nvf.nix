@@ -1,4 +1,4 @@
-{inputs, ...}:
+{ inputs, ... }:
 {
   imports = [ inputs.nvf.homeManagerModules.default ];
   programs.nvf = {
@@ -38,8 +38,8 @@
         autocomplete.blink-cmp.enable = true;
         lsp.enable = true;
         treesitter = {
-            enable = true;
-            indent.enable = false;
+          enable = true;
+          indent.enable = false;
         };
 
         languages = {

@@ -2,13 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -20,12 +25,12 @@
   # Fingerprint
   services.fprintd.enable = true;
 
- # Setup PAM
- security.pam.services = {
-   swaylock = {
+  # Setup PAM
+  security.pam.services = {
+    swaylock = {
       fprintAuth = true;
-   };
- };
+    };
+  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -48,7 +53,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  
+
   # Audio
   services.pipewire = {
     enable = true;
@@ -85,8 +90,11 @@
   users.users.koster = {
     isNormalUser = true;
     description = "Thiago";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
     shell = pkgs.fish;
   };
 
@@ -96,9 +104,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     ffmpeg
-  #  wget
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    ffmpeg
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -122,7 +130,10 @@
 
   fonts.fontDir.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
