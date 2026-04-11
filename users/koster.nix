@@ -28,6 +28,8 @@
     obsidian
     freecad
     prusa-slicer
+
+    jetbrains.rider
   ];
 
   # Let Home Manager install and manage itself
