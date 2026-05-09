@@ -1,0 +1,34 @@
+{
+  "plugins": {
+    "LuaSnip": {
+      "rev": "5a1e39223db9a0498024a77b8441169d260c8c25",
+      "src": "https://github.com/L3MON4D3/LuaSnip",
+      "version": "'v2.4.1'"
+    },
+    "blink.cmp": {
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "'v1.10.2'"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "gruvbox": {
+      "rev": "697c00291db857ca0af00ec154e5bd514a79191f",
+      "src": "https://github.com/morhetz/gruvbox"
+    },
+    "nvim-lspconfig": {
+      "rev": "451d4ef9abd4f0f08e379ef0d55d1c391b6125a7",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "f04ab730b8f9c6bf3f54a206d0dcddfd70c52d59",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    }
+  }
+}

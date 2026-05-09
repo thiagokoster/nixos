@@ -32,6 +32,11 @@
     };
   };
 
+ # Docker
+ virtualisation.docker = {
+  enable = true;
+ };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;
@@ -43,6 +48,8 @@
 
   # Window Manager
   programs.niri.enable = true;
+
+  programs.nix-ld.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -94,6 +101,7 @@
       "networkmanager"
       "wheel"
       "dialout"
+      "docker"
     ];
     packages = with pkgs; [ ];
     shell = pkgs.fish;

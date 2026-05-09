@@ -7,6 +7,8 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-code.url = "github:sadjow/claude-code-nix";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     # NV (Neovim)
     nvf = {
@@ -21,6 +23,8 @@
       nixpkgs,
       home-manager,
       nvf,
+      claude-code,
+      neovim-nightly,
       ...
     }@inputs:
     {

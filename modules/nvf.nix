@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   imports = [ inputs.nvf.homeManagerModules.default ];
   programs.nvf = {
@@ -37,6 +37,11 @@
 
         autocomplete.blink-cmp.enable = true;
         lsp.enable = true;
+        lsp.presets.clangd.enable = true;
+        lsp.servers.clangd.cmd = lib.mkForce [
+          "${pkgs.clang-tools}/bin/clangd"
+          "--query-driver=**/riscv32-esp-elf-*"
+        ];
         treesitter = {
           enable = true;
           indent.enable = false;
@@ -45,7 +50,7 @@
         languages = {
           nix.enable = true;
           zig.enable = true;
-          odin.enable = true;
+          go.enable = true;
         };
 
         maps.normal."<leader>e" = {

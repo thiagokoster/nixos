@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   home.stateVersion = "25.05";
   home.username = "koster";
@@ -6,7 +6,8 @@
 
   imports = [
     ../modules/niri
-    ../modules/nvf.nix
+    ../modules/nvim
+    #../modules/nvf.nix
     ../modules/swaylock.nix
     ../modules/fish.nix
   ];
@@ -28,9 +29,15 @@
     obsidian
     freecad
     prusa-slicer
+    spotify
 
-    jetbrains.rider
+    inputs.claude-code.packages.${pkgs.system}.default
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
