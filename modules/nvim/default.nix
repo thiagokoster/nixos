@@ -4,6 +4,9 @@
   home.packages = with pkgs; [
       inputs.neovim-nightly.packages.${pkgs.system}.default
       ripgrep
+      fd
+      gnumake
+      gcc
 
       lua-language-server
   ];
