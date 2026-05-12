@@ -5,6 +5,7 @@ in
 {
   home.packages = with pkgs; [
     libnl # Network module
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.waybar = {

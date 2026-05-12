@@ -310,8 +310,8 @@ window-rule {
 window-rule {
     match app-id="org.pulseaudio.pavucontrol"
     open-floating true
-    default-column-width { proportion 0.3; }
-    default-window-height { proportion 0.3; }
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.5; }
 }
 
 // Example: enable rounded corners for all windows.
@@ -337,7 +337,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 

@@ -7,12 +7,12 @@
 
 {
   imports = [
-    ../kitty.nix
+    #../kitty.nix
+    ../ghostty.nix
     ../waybar.nix
   ];
 
   home.packages = with pkgs; [
-    kitty
     fuzzel
     xwayland-satellite
   ];

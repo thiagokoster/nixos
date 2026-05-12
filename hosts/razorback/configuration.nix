@@ -22,6 +22,8 @@
   powerManagement.enable = true;
   services.logind.lidSwitch = "suspend-then-hibernate";
 
+  hardware.bluetooth.enable = true;
+
   # Fingerprint
   services.fprintd.enable = true;
 
@@ -36,6 +38,7 @@
  virtualisation.docker = {
   enable = true;
  };
+
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
