@@ -10,6 +10,8 @@
     claude-code.url = "github:sadjow/claude-code-nix";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
+    awww.url = "git+https://codeberg.org/LGFae/awww";
+
     # NV (Neovim)
     nvf = {
       url = "github:notashelf/nvf";
@@ -25,6 +27,7 @@
       nvf,
       claude-code,
       neovim-nightly,
+      awww,
       ...
     }@inputs:
     {
