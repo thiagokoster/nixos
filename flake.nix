@@ -11,12 +11,6 @@
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     awww.url = "git+https://codeberg.org/LGFae/awww";
-
-    # NV (Neovim)
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
