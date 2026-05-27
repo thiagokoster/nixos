@@ -18,7 +18,6 @@
       self,
       nixpkgs,
       home-manager,
-      nvf,
       claude-code,
       neovim-nightly,
       awww,

@@ -7,10 +7,10 @@
   imports = [
     ../modules/niri
     ../modules/nvim
-    #../modules/nvf.nix
     ../modules/swaylock.nix
     ../modules/fish.nix
   ];
+
 
   programs.git = {
     enable = true;

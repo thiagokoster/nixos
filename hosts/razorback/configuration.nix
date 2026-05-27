@@ -34,10 +34,11 @@
     };
   };
 
- # Docker
- virtualisation.docker = {
-  enable = true;
- };
+
+# Docker
+  virtualisation.docker = {
+    enable = true;
+  };
 
 
   home-manager = {
@@ -51,6 +52,8 @@
 
   # Window Manager
   programs.niri.enable = true;
+
+  programs.steam.enable = true;
 
   programs.nix-ld.enable = true;
 
