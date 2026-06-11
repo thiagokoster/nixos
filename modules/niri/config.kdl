@@ -184,8 +184,6 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        off
-
         width 4
         active-color "#ffc87f"
         inactive-color "#505050"
@@ -317,8 +315,7 @@ window-rule {
 }
 
 // Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }

@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     fuzzel
     xwayland-satellite
+    brightnessctl
     inputs.awww.packages.${stdenv.hostPlatform.system}.awww
   ];
 
