@@ -9,6 +9,7 @@
     ../modules/nvim
     ../modules/swaylock.nix
     ../modules/fish.nix
+    ../modules/zen-notes.nix
   ];
 
 
@@ -30,6 +31,7 @@
     freecad
     prusa-slicer
     spotify
+    blender
 
     inputs.claude-code.packages.${pkgs.system}.default
   ];
