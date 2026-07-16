@@ -1,61 +1,35 @@
 {
-  description = "My flake";
-  inputs = {
-    # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+  description = "A very basic flake";
 
-    # Home manager
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-code.url = "github:sadjow/claude-code-nix";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
-    # Niri
-    niri = {
-        url = "github:sodiboo/niri-flake";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-
-    nvf = {
-        url = "github:notashelf/nvf";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    opencode = {
-        url = "github:anomalyco/opencode";
-        inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    openspec = {
-        url = "github:Fission-AI/OpenSpec";
-        inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-    nix-colors.url = "github:misterio77/nix-colors";
+    awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
-  outputs = inputs@{ self,
-  nixpkgs,
-  nixpkgs-unstable,
-  nvf,
-  niri,
-  nix-colors,
-  opencode,
-  openspec,
-  ... }:
-    let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    in 
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      claude-code,
+      neovim-nightly,
+      awww,
+      ...
+    }@inputs:
     {
       nixosConfigurations.razorback = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-            nvf.nixosModules.default
-            niri.nixosModules.niri
-            ./hosts/razorback/configuration.nix 
+          ./hosts/razorback/configuration.nix
+          home-manager.nixosModules.home-manager
         ];
       };
     };
