@@ -54,6 +54,17 @@
   # Window Manager
   programs.niri.enable = true;
 
+  # Login manager
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd niri-session";
+        user = "greeter";
+      };
+    };
+  };
+
   programs.steam.enable = true;
 
   programs.nix-ld.enable = true;
