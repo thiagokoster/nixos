@@ -12,6 +12,7 @@
 
     awww.url = "git+https://codeberg.org/LGFae/awww";
     mangowm.url = "github:mangowm/mango";
+    waybar.url = "github:Alexays/Waybar";
   };
 
   outputs =
@@ -23,6 +24,7 @@
       neovim-nightly,
       awww,
       mangowm,
+      waybar,
       ...
     }@inputs:
     {

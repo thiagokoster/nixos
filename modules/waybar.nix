@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 let
   icon-font = "3270 Nerd Font";
   theme = import ./theme.nix;
@@ -11,6 +11,9 @@ in
 
   programs.waybar = {
     enable = true;
+    # Waybar's mango/* modules landed in Waybar upstream after the 0.15.0
+    # release, so track master via Waybar's own flake until the next release.
+    package = inputs.waybar.packages.${pkgs.system}.default;
     settings = [
       {
         layer = "top";
@@ -19,8 +22,6 @@ in
         height = 26;
         modules-left = [ 
           "mango/workspaces"
-          "mango/layout"
-          "mango/window"
         ];
         modules-right = [
           "clock"

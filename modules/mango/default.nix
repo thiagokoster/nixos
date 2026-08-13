@@ -24,7 +24,10 @@
       "id:2,layout_name:scroller"
       "id:3,layout_name:scroller"
       ];
-      scroller_proportion_preset = "0.5,0.8,1.0";
+      scroller_structs = 0;
+      scroller_proportion_preset = "0.33,0.5,0.66,1.0";
+      scroller_default_proportion = 0.5;
+      scroller_ignore_proportion_single = 0;
       bind = [
         "SUPER,r,reload_config"
         "SUPER,space,spawn,fuzzel"
