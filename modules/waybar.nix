@@ -131,6 +131,7 @@ in
       @define-color pulseaudio-color @foreground;
       @define-color pulseaudio-muted-color @foreground;
 
+      @define-color battery-color @green;
       @define-color battery-charging-color @green;
       @define-color battery-warning-color @yellow;
       @define-color battery-critical-color @red;
