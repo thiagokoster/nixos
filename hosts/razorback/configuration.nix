@@ -53,13 +53,14 @@
 
   # Window Manager
   programs.niri.enable = true;
+  programs.mango.enable = true;
 
   # Login manager
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd niri-session";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd mango";
         user = "greeter";
       };
     };

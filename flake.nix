@@ -11,6 +11,7 @@
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
 
     awww.url = "git+https://codeberg.org/LGFae/awww";
+    mangowm.url = "github:mangowm/mango";
   };
 
   outputs =
@@ -21,6 +22,7 @@
       claude-code,
       neovim-nightly,
       awww,
+      mangowm,
       ...
     }@inputs:
     {
@@ -28,6 +30,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          mangowm.nixosModules.mango
           ./hosts/razorback/configuration.nix
           home-manager.nixosModules.home-manager
         ];

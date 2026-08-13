@@ -6,6 +6,7 @@
 
   imports = [
     ../modules/niri
+    ../modules/mango
     ../modules/nvim
     ../modules/swaylock.nix
     ../modules/fish.nix

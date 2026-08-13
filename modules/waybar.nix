@@ -17,13 +17,16 @@ in
         position = "top";
         mod = "dock";
         height = 26;
-        modules-left = [ "niri/workspaces" ];
+        modules-left = [ 
+          "mango/workspaces"
+          "mango/layout"
+          "mango/window"
+        ];
         modules-right = [
           "clock"
           "pulseaudio"
           "network"
           "battery"
-          "niri/language"
         ];
 
         network = {
