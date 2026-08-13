@@ -3,7 +3,8 @@
 {
   programs.kitty = {
     enable = true;
-    themeFile = "Catppuccin-Mocha";
+    # Keep in sync with modules/theme.nix (flavour = "latte")
+    themeFile = "Catppuccin-Latte";
     font.package = pkgs.nerd-fonts.jetbrains-mono;
     font.name = "JetBrainsMono Nerd Font Mono";
     extraConfig = ''

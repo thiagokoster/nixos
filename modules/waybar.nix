@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   icon-font = "3270 Nerd Font";
+  theme = import ./theme.nix;
 in
 {
   home.packages = with pkgs; [
@@ -97,19 +98,19 @@ in
     ];
 
     style = ''
-      /* Pastel TTY Colors */
-      @define-color background #212121;
-      @define-color background-light #3a3a3a;
-      @define-color foreground #e0e0e0;
-      @define-color black #5a5a5a;
-      @define-color red #ff9a9e;
-      @define-color green #b5e8a9;
-      @define-color yellow #ffe6a7;
-      @define-color blue #63a4ff;
-      @define-color magenta #dda0dd;
-      @define-color cyan #a3e8e8;
-      @define-color white #ffffff;
-      @define-color orange #ff8952;
+      /* Catppuccin Latte */
+      @define-color background ${theme.base};
+      @define-color background-light ${theme.surface0};
+      @define-color foreground ${theme.text};
+      @define-color black ${theme.surface2};
+      @define-color red ${theme.red};
+      @define-color green ${theme.green};
+      @define-color yellow ${theme.yellow};
+      @define-color blue ${theme.blue};
+      @define-color magenta ${theme.pink};
+      @define-color cyan ${theme.teal};
+      @define-color white ${theme.crust};
+      @define-color orange ${theme.peach};
 
 
       /* Module-specific colors */

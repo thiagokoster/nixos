@@ -32,6 +32,7 @@ vim.pack.add({
 
   -- Themes
   { src = "https://github.com/morhetz/gruvbox" },
+  { src = "https://github.com/catppuccin/nvim" },
 })
 
 require("config.plugins.telescope")
