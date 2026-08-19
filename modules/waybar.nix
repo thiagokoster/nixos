@@ -20,10 +20,13 @@ in
         position = "top";
         mod = "dock";
         height = 26;
+        spacing = 4;
         modules-left = [ 
           "mango/workspaces"
+          "mango/layout"
         ];
         modules-right = [
+          "mango/language"
           "clock"
           "pulseaudio"
           "network"
@@ -95,7 +98,11 @@ in
           on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -2%";
         };
 
-        "niri/language" = {
+        "mango/layout" = {
+          format = "{}";
+        };
+
+        "mango/language" = {
           format = "  {short}";
         };
       }

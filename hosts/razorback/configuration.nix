@@ -20,7 +20,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   powerManagement.enable = true;
-  services.logind.lidSwitch = "suspend-then-hibernate";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
 
   hardware.bluetooth.enable = true;
 
@@ -52,7 +56,6 @@
   };
 
   # Window Manager
-  programs.niri.enable = true;
   programs.mango.enable = true;
 
   # Login manager

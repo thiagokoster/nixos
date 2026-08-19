@@ -5,7 +5,6 @@
   home.homeDirectory = "/home/koster";
 
   imports = [
-    ../modules/niri
     ../modules/mango
     ../modules/nvim
     ../modules/swaylock.nix

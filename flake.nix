@@ -13,6 +13,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
     mangowm.url = "github:mangowm/mango";
     waybar.url = "github:Alexays/Waybar";
+    zen-notes.url = "github:ZenNotes/zennotes";
   };
 
   outputs =
@@ -25,6 +26,7 @@
       awww,
       mangowm,
       waybar,
+      zen-notes,
       ...
     }@inputs:
     {
