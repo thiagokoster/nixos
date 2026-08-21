@@ -21,7 +21,7 @@
 
   powerManagement.enable = true;
   services.logind.settings.Login = {
-    HandleLidSwitch = "ignore";
+    HandleLidSwitch = "suspend";
     HandleLidSwitchExternalPower = "ignore";
     HandleLidSwitchDocked = "ignore";
   };

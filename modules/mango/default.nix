@@ -61,7 +61,7 @@
       ];
 
       bind = [
-          "SUPER,r,reload_config"
+          "SUPER+SHIFT,r,reload_config"
           "SUPER,space,spawn,fuzzel"
           "SUPER,Return,spawn,ghostty"
           "SUPER,q,killclient,"
@@ -110,7 +110,7 @@
           "SUPER+SHIFT,9,tag,9"
 
           # scroller
-          "SUPER,Comma,switch_proportion_preset"
+          "SUPER,r,switch_proportion_preset"
 
           # brightness
           "none,XF86MonBrightnessUp,spawn,brightnessctl --class=backlight set +10%"
