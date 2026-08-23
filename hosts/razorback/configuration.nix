@@ -19,12 +19,21 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Hibernation: resume from the first swap device declared in
+  # hardware-configuration.nix. Plain partition, so no resumeOffset needed.
+  boot.resumeDevice = (builtins.head config.swapDevices).device;
+
   powerManagement.enable = true;
   services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
+    HandleLidSwitch = "suspend-then-hibernate";
     HandleLidSwitchExternalPower = "ignore";
     HandleLidSwitchDocked = "ignore";
   };
+
+  # Suspend first for a fast resume, then hibernate if still asleep after 90min.
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=90min
+  '';
 
   hardware.bluetooth.enable = true;
 
