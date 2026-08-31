@@ -1,5 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
+  theme = import ../theme.nix;
+  # mango wants 0xRRGGBBAA, the palette is #RRGGBB
+  toMangoColor = hex: alpha: "0x" + (lib.removePrefix "#" hex) + alpha;
   screenshot-full = pkgs.writeShellScriptBin "screenshot-full" ''
     ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png
   '';
@@ -57,7 +60,7 @@ in
       animation_curve_tag = "0.46,1.0,0.29,1";
       animation_curve_close = "0.08,0.92,0,1";
       animation_curve_focus = "0.46,1.0,0.29,1";
-      bordercolor = "0x595959aa";
+      bordercolor = toMangoColor theme.surface1 "aa";
       tagrule = [
         "id:*,layout_name:scroller"
       ];

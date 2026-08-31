@@ -7,7 +7,6 @@
 
 {
   imports = [
-    #../kitty.nix
     ../ghostty.nix
     ../waybar.nix
   ];

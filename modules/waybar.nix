@@ -109,7 +109,7 @@ in
     ];
 
     style = ''
-      /* Catppuccin Latte */
+      /* Catppuccin ${theme.flavourTitle} */
       @define-color background ${theme.base};
       @define-color background-light ${theme.surface0};
       @define-color foreground ${theme.text};

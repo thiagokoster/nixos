@@ -10,6 +10,7 @@
     ../modules/swaylock.nix
     ../modules/fish.nix
     ../modules/zen-notes.nix
+    ../modules/wpaperd.nix
   ];
 
 
