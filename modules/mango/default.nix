@@ -1,4 +1,13 @@
 { config, pkgs, inputs, ... }:
+let
+  screenshot-full = pkgs.writeShellScriptBin "screenshot-full" ''
+    ${pkgs.grim}/bin/grim - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png
+  '';
+  screenshot-region = pkgs.writeShellScriptBin "screenshot-region" ''
+    region=$(${pkgs.slurp}/bin/slurp) || exit 0
+    ${pkgs.grim}/bin/grim -g "$region" - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png
+  '';
+in
 {
   imports = [
     inputs.mangowm.hmModules.mango
@@ -11,6 +20,11 @@
       brightnessctl
       swayidle
       wlr-randr
+      grim
+      slurp
+      wl-clipboard
+      screenshot-full
+      screenshot-region
   ];
 
   wayland.windowManager.mango = {
@@ -111,6 +125,10 @@
 
           # scroller
           "SUPER,r,switch_proportion_preset"
+
+          # screenshots (copied to clipboard)
+          "SUPER,s,spawn,screenshot-full"
+          "SUPER+SHIFT,s,spawn,screenshot-region"
 
           # brightness
           "none,XF86MonBrightnessUp,spawn,brightnessctl --class=backlight set +10%"

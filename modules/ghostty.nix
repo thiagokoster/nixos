@@ -11,6 +11,7 @@ in
       window-padding-color = "extend";
       working-directory = "home";
       theme = "Catppuccin ${theme.flavourTitle}";
+      shell-integration-features = "ssh-env, ssh-terminfo,sudo";
     };
   };
 }
