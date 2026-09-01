@@ -14,12 +14,12 @@ in
 {
   imports = [
     inputs.mangowm.hmModules.mango
+      ../fuzzel.nix
       ../ghostty.nix
       ../waybar.nix
   ];
 
   home.packages = with pkgs; [
-    fuzzel
       brightnessctl
       swayidle
       wlr-randr
