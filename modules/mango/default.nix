@@ -1,6 +1,8 @@
 { config, lib, pkgs, inputs, ... }:
 let
   theme = import ../theme.nix;
+  dimTimeout = 840;   # 14 min - dim as a warning
+  lockTimeout = 900;  # 15 min - lock
   # mango wants 0xRRGGBBAA, the palette is #RRGGBB
   toMangoColor = hex: alpha: "0x" + (lib.removePrefix "#" hex) + alpha;
   screenshot-full = pkgs.writeShellScriptBin "screenshot-full" ''
@@ -35,8 +37,10 @@ in
     autostart_sh = ''
       waybar &
       swayidle -w \
-      timeout 300 'swaylock -f' \
-      before-sleep 'swaylock -f' &
+        timeout ${toString dimTimeout} '${pkgs.brightnessctl}/bin/brightnessctl -s set 10%' \
+          resume '${pkgs.brightnessctl}/bin/brightnessctl -r' \
+        timeout ${toString lockTimeout} 'swaylock -f' \
+        before-sleep 'swaylock -f' &
       '';
     settings = {
       animations = 1;
