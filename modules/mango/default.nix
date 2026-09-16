@@ -73,8 +73,8 @@ in
           "isfloating:1,appid:pavucontrol"
       ];
       scroller_structs = 0;
-      scroller_proportion_preset = "0.33,0.5,0.66,1.0";
-      scroller_default_proportion = 0.5;
+      scroller_proportion_preset = "0.333,0.5,0.666,1.0";
+      scroller_default_proportion = 0.333;
       scroller_ignore_proportion_single = 0;
       mousebind = [
           "SUPER,btn_left,moveresize,curmove"

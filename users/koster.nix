@@ -9,7 +9,7 @@
     ../modules/nvim
     ../modules/swaylock.nix
     ../modules/fish.nix
-    ../modules/zen-notes.nix
+    #../modules/zen-notes.nix
     ../modules/wpaperd.nix
   ];
 
@@ -33,6 +33,7 @@
     prusa-slicer
     spotify
     blender
+    discord
 
     inputs.claude-code.packages.${pkgs.system}.default
   ];
