@@ -12,6 +12,17 @@ let
     region=$(${pkgs.slurp}/bin/slurp) || exit 0
     ${pkgs.grim}/bin/grim -g "$region" - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png
   '';
+  # The home-manager module still emits the old `exec-once` keyword for
+  # autostart_sh, which mango's config parser rejects, so wire up the script
+  # ourselves via the `exec_once` setting instead.
+  autostart = pkgs.writeShellScript "mango-autostart" ''
+    waybar &
+    swayidle -w \
+      timeout ${toString dimTimeout} '${pkgs.brightnessctl}/bin/brightnessctl -s set 10%' \
+        resume '${pkgs.brightnessctl}/bin/brightnessctl -r' \
+      timeout ${toString lockTimeout} 'swaylock -f' \
+      before-sleep 'swaylock -f' &
+  '';
 in
 {
   imports = [
@@ -34,15 +45,8 @@ in
 
   wayland.windowManager.mango = {
     enable = true;
-    autostart_sh = ''
-      waybar &
-      swayidle -w \
-        timeout ${toString dimTimeout} '${pkgs.brightnessctl}/bin/brightnessctl -s set 10%' \
-          resume '${pkgs.brightnessctl}/bin/brightnessctl -r' \
-        timeout ${toString lockTimeout} 'swaylock -f' \
-        before-sleep 'swaylock -f' &
-      '';
     settings = {
+      exec_once = "${autostart}";
       animations = 1;
       layer_animations = 1;
       animation_type_open = "slide";
@@ -52,8 +56,8 @@ in
       tag_animation_direction = 0;
       zoom_initial_ratio = 0.3;
       zoom_end_ratio = 0.8;
-      fadein_begin_opacity = 0.5;
-      fadeout_begin_opacity = 0.8;
+      fade_in_begin_opacity = 0.5;
+      fade_out_begin_opacity = 0.8;
       animation_duration_move = 500;
       animation_duration_open = 400;
       animation_duration_tag = 350;
@@ -64,14 +68,14 @@ in
       animation_curve_tag = "0.46,1.0,0.29,1";
       animation_curve_close = "0.08,0.92,0,1";
       animation_curve_focus = "0.46,1.0,0.29,1";
-      bordercolor = toMangoColor theme.surface1 "aa";
-      tagrule = [
+      border_color = toMangoColor theme.surface1 "aa";
+      tag_rule = [
         "id:*,layout_name:scroller"
       ];
-      windowrule = [
-          "isfloating:1,appid:firefox,title:Picture-in-Picture,isglobal:1"
-          "isfloating:1,appid:pavucontrol"
-          "isfloating:1,appid:zcore"
+      window_rule = [
+          "is_floating:1,app_id:firefox,title:Picture-in-Picture,is_global:1"
+          "is_floating:1,app_id:pavucontrol"
+          "is_floating:1,app_id:zcore"
       ];
       scroller_structs = 0;
       scroller_proportion_preset = "0.333,0.5,0.666,1.0";
