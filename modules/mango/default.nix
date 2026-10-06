@@ -71,6 +71,7 @@ in
       windowrule = [
           "isfloating:1,appid:firefox,title:Picture-in-Picture,isglobal:1"
           "isfloating:1,appid:pavucontrol"
+          "isfloating:1,appid:zcore"
       ];
       scroller_structs = 0;
       scroller_proportion_preset = "0.333,0.5,0.666,1.0";
