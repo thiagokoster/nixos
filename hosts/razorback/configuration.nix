@@ -72,7 +72,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd mango";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd mango";
         user = "greeter";
       };
     };

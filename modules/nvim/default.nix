@@ -4,7 +4,7 @@ let
 in
 {
   home.packages = with pkgs; [
-      inputs.neovim-nightly.packages.${pkgs.system}.default
+      inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
       ripgrep
       fd
       gnumake

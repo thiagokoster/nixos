@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    inputs.zen-notes.packages.${pkgs.system}.default
+    inputs.zen-notes.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

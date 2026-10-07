@@ -13,7 +13,7 @@ in
     enable = true;
     # Waybar's mango/* modules landed in Waybar upstream after the 0.15.0
     # release, so track master via Waybar's own flake until the next release.
-    package = inputs.waybar.packages.${pkgs.system}.default;
+    package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default;
     settings = [
       {
         layer = "top";

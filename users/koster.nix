@@ -35,7 +35,7 @@
     blender
     discord
 
-    inputs.claude-code.packages.${pkgs.system}.default
+    inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.direnv = {
