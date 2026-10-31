@@ -13,7 +13,13 @@ in
     enable = true;
     # Waybar's mango/* modules landed in Waybar upstream after the 0.15.0
     # release, so track master via Waybar's own flake until the next release.
-    package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    # Cava is disabled because upstream's nix/default.nix vendors libcava into
+    # subprojects/cava-1.0.0, but libcava.wrap now expects subprojects/libcava.
+    package = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+      mesonFlags = (builtins.filter (f: !(pkgs.lib.hasPrefix "-Dcava=" f)) old.mesonFlags) ++ [
+        "-Dcava=disabled"
+      ];
+    });
     settings = [
       {
         layer = "top";

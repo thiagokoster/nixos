@@ -30,10 +30,12 @@
     HandleLidSwitchDocked = "ignore";
   };
 
-  # Suspend first for a fast resume, then hibernate if still asleep after 90min.
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=90min
-  '';
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = "yes";
+    AllowHibernation = "yes";
+    AllowHybridSleep = "yes";
+    AllowSuspendThenHibernate = "yes";
+  };
 
   hardware.bluetooth.enable = true;
 

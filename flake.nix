@@ -2,9 +2,9 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     claude-code.url = "github:sadjow/claude-code-nix";
@@ -13,7 +13,6 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
     mangowm.url = "github:mangowm/mango";
     waybar.url = "github:Alexays/Waybar";
-    zen-notes.url = "github:ZenNotes/zennotes";
   };
 
   outputs =
@@ -26,7 +25,6 @@
       awww,
       mangowm,
       waybar,
-      zen-notes,
       ...
     }@inputs:
     {
