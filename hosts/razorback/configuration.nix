@@ -19,6 +19,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # The kernel's tiny_power_button driver (meant for VMs) gets autoloaded and
+  # claims the ACPI power button ahead of the normal `button` driver. On
+  # resume the firmware sends the power button a wake notify, and this driver
+  # answers ANY notify by sending PID 1 SIGRTMIN+4 = immediate power off.
+  # Blacklist it so `button` + logind handle the power key as usual.
+  boot.blacklistedKernelModules = [ "tiny_power_button" ];
+
   # Hibernation: resume from the first swap device declared in
   # hardware-configuration.nix. Plain partition, so no resumeOffset needed.
   boot.resumeDevice = (builtins.head config.swapDevices).device;
@@ -35,6 +42,9 @@
     AllowHibernation = "yes";
     AllowHybridSleep = "yes";
     AllowSuspendThenHibernate = "yes";
+    # Without this, systemd guesses from the battery discharge rate, which
+    # never woke the machine from s2idle here and let it drain to 0%.
+    HibernateDelaySec = "1h";
   };
 
   hardware.bluetooth.enable = true;

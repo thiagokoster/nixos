@@ -29,7 +29,7 @@
     firefox
     obsidian
     freecad
-    prusa-slicer
+    (import inputs.nixpkgs-unstable { inherit (pkgs.stdenv.hostPlatform) system; config.allowUnfree = true; }).prusa-slicer
     spotify
     blender
     discord
